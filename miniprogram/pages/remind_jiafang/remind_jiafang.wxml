@@ -1,0 +1,31 @@
+<view class="content">
+
+<view class="top_empty"></view>
+
+<view class="hello" >
+<text>您好</text>
+</view>
+
+<view class="line">
+<text>贵司的维保日期为</text>
+</view>
+
+<view  class="line"  >
+<text>每月</text>
+<text style="font-family:clockfamily;color:#2962d4;">18</text>
+<text >日</text>
+</view>
+
+<view class="line">
+<text  >距离下次维保还有</text>
+</view>
+
+<!-- <view class='name' wx:if="{{countDown}}">
+      <text class='restdays' style="font-family:clockfamily;color:#2962d4;">{{coutday}}天</text> 
+</view> -->
+<view class="line">
+<text style="font-family:clockfamily;color:#2962d4;"       >18天</text>
+</view>
+
+
+</view>

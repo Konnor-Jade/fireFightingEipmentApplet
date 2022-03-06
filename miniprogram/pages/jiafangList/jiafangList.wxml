@@ -1,0 +1,76 @@
+<!-- 顶部搜索框 -->
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词" 
+  bind:search="onSearch"
+  shape="round"
+  use-action-slot
+  use-right-icon-slot
+
+>
+<view  slot="action" bindtap="gotoaddjiafang"><image style="width:30px;height:30px;margin-top:7px;" src="../../images/plus.png"></image>
+</view>
+</van-search>
+<!-- 顶部搜索框结束 -->
+
+<!-- tabbar -->
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="friends-o" bindtap="gotocoprt" >合作公司</van-tabbar-item>
+  <van-tabbar-item icon="user-o">甲方公司</van-tabbar-item>
+  <van-tabbar-item icon="notes-o">维保记录</van-tabbar-item>
+  <van-tabbar-item icon="chat-o">维修提醒</van-tabbar-item>
+</van-tabbar>
+<!-- tabbar结束 -->
+
+<!-- <view class="container">
+  <scroll-view class="companyList"" scroll-y="true" bindscrolltolower="getjiacompanies">
+    <view wx:for="{{jiacompanies}}" class="jiacompany" wx:key="id" data-id="{{item.id}}" bindtap="getDetail">
+    
+      <image class="movie-cover" src="{{item.cover}}" mode="scaleToFill"></image>
+      <view class="movie-score">
+        <text>{{item.score}}</text>
+      </view>
+      
+     <view style="border:solid;width:85%;" >
+     <view><text>{{item.score}}</text></view>
+
+
+     </view>
+    
+    </view>
+  </scroll-view>
+</view> -->
+
+<!--内容卡片 -->
+<view class="container">
+<view class="cpncards" wx:for="{{cpncards}}" wx:key="_id">
+<view class="titlearea"><text style="font-family:titlefamily;font-size:2em;font-color:" > {{item.companyName}}</text></view>
+ <view style="display:flex; height:30%;position: relative; ">
+
+  <view class="duration" style="height:100%;" >
+  <text style="font-size:0.5em;">{{item.companyInfo.startDate}}---{{item.companyInfo.endDate}}</text>
+  </view>
+  
+  <view style="display:flex;margin-left:10rpx;width:50%; float: right;" >
+
+  <view class="routinedate" style="text-align:right;">
+  <text> 每月维保日期:</text>
+  </view>
+
+  <view class="routinedate" style="margin-top:-5px;text-align:right;">
+  <text class="num" style="color:#2962d4; font-size:1.5em;">{{item.companyInfo.routineDate}}</text>
+  </view>
+
+  <view class="routinedate" style="text-align:right;" >
+  <text> 号</text>
+  </view>
+
+  </view>
+
+  </view>
+</view>
+</view>
+
+<!-- 留底的空白距离 -->
+<view style="height:140px;">
+</view>

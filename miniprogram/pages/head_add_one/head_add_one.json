@@ -1,0 +1,20 @@
+{
+  "usingComponents": {
+    "van-button": "../../miniprogram_npm/@vant/weapp/button/index",
+    "van-field":"../../miniprogram_npm/@vant/weapp/field/index",
+    "van-uploader":"../../miniprogram_npm/@vant/weapp/uploader/index",
+    "van-datetime-picker":"../../miniprogram_npm/@vant/weapp/datetime-picker/index",
+    "van-popup":"../../miniprogram_npm/@vant/weapp/popup/index",
+    "van-calendar":"../../miniprogram_npm/@vant/weapp/calendar/index",
+    "van-cell":"../../miniprogram_npm/@vant/weapp/cell/index",
+     "van-collapse":"../../miniprogram_npm/@vant/weapp/collapse",
+     "van-collapse-item":"../../miniprogram_npm/@vant/weapp/collapse-item",
+     "i-collapse": "../../dist/collapse/index",
+     "i-collapse-item": "../../dist/collapse-item/index",
+     "i-panel": "../../dist/panel/index",
+     "i-cell-group": "../../dist/cell-group/index",
+     "i-cell": "../../dist/cell/index",
+     "i-input-number": "../../dist/input-number/index",
+     "i-input": "../../dist/input/index"
+  }
+}

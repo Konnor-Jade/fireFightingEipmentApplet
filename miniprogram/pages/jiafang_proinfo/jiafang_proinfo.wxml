@@ -1,0 +1,12 @@
+<!-- tabbar -->
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="orders-o" >项目概况</van-tabbar-item>
+  <van-tabbar-item icon="clock-o">下次维保</van-tabbar-item>
+  <van-tabbar-item icon="notes-o">维保记录</van-tabbar-item>
+  <van-tabbar-item icon="volume-o">我的消息</van-tabbar-item>
+</van-tabbar>
+<!-- tabbar结束 -->
+
+<view>
+<web-view src="{{httpfile}}"></web-view>
+</view>

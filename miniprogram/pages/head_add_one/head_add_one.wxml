@@ -1,0 +1,237 @@
+<!-- 添加甲方公司wxml -->
+<!-- 顶部导航栏 -->
+<view >
+<view class="top_navi" style="text-align:center; margin-top:20px;margin-bottom:20px;" >
+<!-- 返回键与页面主图 -->
+<!-- <image class="toback" src="../../images/toback.png" ></image> -->
+<image src="../../images/add_pic_bg.png" style=" width:220px;height:43px;"></image>
+</view>
+
+
+
+<!-- 内容 -->
+<view class="container"  >
+<!-- 表单开始，提交函数为saveData -->
+<form  catchsubmit="formSubmit" >
+<!-- 第一行：输入公司名称 -->
+<i-input value="{{ valuecompanyname }}" title="公司名称" autofocus placeholder="请输入甲方公司全称" name="companyname" />
+
+
+ <!-- 第二行：上传公司项目概况文件 -->
+<i-cell title="上传公司项目概况" name="fileid" value="{{fileid}}">
+<view slot="footer"><image src="../../images/uploadlogo.png"  style="width:40px;height:30px;margin-right:10px;" bindtap="uploadfile" ></image><image src="../../images/lookfile.png" style="width:40px;height:30px;"bindtap="openfile"></image></view>
+</i-cell>
+<!-- 第三行，设置维保起始时间 -->
+
+ <i-cell  title="维保起始时间" bind:click="showPopup" ><view class="TimeBox"  slot="footer">
+
+      <!-- 右边选择弹窗时间 -->
+        <view class="right-cont dis-flex" >
+          <input name="start_date" readonly="readonly" placeholder="请设置起始时间" value="{{start_date}}" disabled="false" ></input>
+        </view>
+ </view>
+ </i-cell>
+
+ <!-- 第四行，设置维保终止时间 -->
+ <i-cell i-class="cellList" title="维保结束时间" bind:click="showPopup1"> 
+ <view class="TimeBox" style="display:flex;"  slot="footer" >
+      <!-- 左边文本提示 -->
+        <!-- <view class="left-name">
+          <text class="f-30">维保结束时间</text>
+        </view> -->
+      <!-- 右边选择弹窗时间 -->
+        <view class="right-cont dis-flex"  >
+          <input name="end_date" readonly="readonly" placeholder="请设置结束时间" value="{{end_date}}" disabled="false" ></input>
+        </view>
+</view>
+</i-cell>
+<!-- 根据show的值出现的起始时间弹窗 -->
+      <van-popup show="{{ show }}" bind:close="onClose"  position="bottom">
+      <!--弹窗内容为时间 -->
+      <view>
+        <van-datetime-picker
+      v-model="currentDate"
+     type="date"
+    title="选择维保起始日期"
+    :min-date="minDate"
+    :max-date="maxDate"
+     :formatter="formatter"
+       bind:confirm="confirmFn"
+  bind:cancel="cancelFn"
+  bind:input="onInput"
+/>
+  </view>
+</van-popup>
+<!--起始时间选择-->
+
+
+<!-- 根据show的值出现的终止时间弹窗 -->
+<van-popup show="{{ show1 }}"  bind:close="onClose"  position="bottom">
+  <view>
+  <van-datetime-picker
+  v-model="currentDate1"
+  type="date"
+  title="选择维保终止日期"
+  :min-date="minDate"
+  :max-date="maxDate"
+  :formatter="formatter"
+    bind:confirm="confirmFn1"
+  bind:cancel="cancelFn"
+  bind:input="onInput"
+/>
+  </view>
+</van-popup>
+<!--终止时间选择-->
+
+<!-- 选择每月维保时间 -->
+<i-input name="routine" value="{{ valueworkdate }}" type="number" title="每月维保日期" autofocus placeholder="只输入数字，例如：28" />
+
+<!-- 选择消防维保项目明细 -->
+  <view class="section section_gap">
+<i-collapse name="{{headsysname}}">
+ <i-cell><i-collapse-item name="headsysname1" title="勾选消防维保项目"
+ i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content" >
+<view slot="content">
+
+<i-collapse name="{{sysname}}">
+   <i-cell><i-collapse-item name="sysname1" title="消火栓系统" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+    <view slot="content">
+      <checkbox-group name="checkbox" value="">
+      <view><label><checkbox value="checkbox1"/>消防水泵</label></view>
+      <view><label><checkbox value="checkbox2"/>水泵控制柜</label></view>
+      <view><label><checkbox value="checkbox3"/>消防箱</label></view>
+      <view><label><checkbox value="checkbox4"/>联动按钮</label></view>
+      </checkbox-group>
+    </view>
+   </i-collapse-item>
+   </i-cell>
+
+<i-cell>
+ <i-collapse-item name="sysname2" title="自动喷水灭火系统" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+      <view slot="content">
+      <checkbox-group name="checkbox">
+      <view><label><checkbox value="checkbox2"/>消防水泵</label></view>
+      <view><label><checkbox value="checkbox2"/>水泵控制柜</label></view>
+      <view><label><checkbox value="checkbox2"/>报警阀组</label></view>
+      <view><label><checkbox value="checkbox2"/>喷头</label></view>
+      <view><label><checkbox value="checkbox2"/>末端试水</label></view> 
+    </checkbox-group>
+  </view>
+   </i-collapse-item>
+   </i-cell>
+
+<i-cell>
+   <i-collapse-item name="sysname3" title="气体灭火系统" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+      <view slot="content">
+      <checkbox-group name="checkbox">
+      <view><label><checkbox value="checkbox2"/>储存装置</label></view>
+      <view><label><checkbox value="checkbox2"/>气体灭火控制器</label></view>
+      <view><label><checkbox value="checkbox2"/>喷头</label></view>
+    </checkbox-group>
+      </view>
+   </i-collapse-item>
+</i-cell>
+
+<i-cell>
+   <i-collapse-item name="sysname4" title="火灾自动报警系统" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+      <view slot="content">
+
+      <checkbox-group name="checkbox">
+      <view><label><checkbox value="checkbox2"/>火灾报警控制器</label></view>
+      <view><label><checkbox value="checkbox2"/>消防联动控制器</label></view>
+      <view><label><checkbox value="checkbox2"/>感烟感温火灾探测器</label></view>
+      <view><label><checkbox value="checkbox2"/>手动火灾报警按钮</label></view>
+      <view><label><checkbox value="checkbox2"/>火灾警报装置</label></view>
+      <view><label><checkbox value="checkbox2"/>消防应急广播</label></view>
+    </checkbox-group>
+       </view>
+   </i-collapse-item>
+</i-cell>
+
+<i-cell>
+    <i-collapse-item name="sysname5" title="防排烟系统" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+      <view slot="content">
+      <checkbox-group name="checkbox">
+      <view><label><checkbox value="checkbox2"/>排烟风机</label></view>
+      <view><label><checkbox value="checkbox2"/>排烟口及排烟防火阀</label></view>
+      <view><label><checkbox value="checkbox2"/>挡烟垂壁</label></view>
+      <view><label><checkbox value="checkbox2"/>送风机</label></view>
+      <view><label><checkbox value="checkbox2"/>送风控制柜</label></view>    
+    </checkbox-group>
+        </view>
+   </i-collapse-item>
+</i-cell>
+
+<i-cell>
+       <i-collapse-item name="sysname6" title="防火门和防火卷帘" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+      <view slot="content">
+
+      <checkbox-group name="checkbox">
+      <view><label><checkbox value="checkbox2"/>防火门</label></view>
+      <view><label><checkbox value="checkbox2"/>防火卷帘</label></view>
+    </checkbox-group>
+          </view>
+   </i-collapse-item>
+</i-cell>
+
+<i-cell>
+<i-collapse-item name="sysname7" title="消防应急照明及疏散指示系统" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+      <view slot="content">
+
+      <checkbox-group name="checkbox">
+      <view><label><checkbox value="checkbox2"/>应急灯</label></view>
+      <view><label><checkbox value="checkbox2"/>疏散指示</label></view>
+    </checkbox-group>
+         </view>
+   </i-collapse-item>
+</i-cell>
+
+<i-cell>
+<i-collapse-item name="sysname8" title="建筑灭火器" i-class-title="collapse-item-title"
+                i-class-content="collapse-item-content">
+      <view slot="content">
+
+      <checkbox-group name="checkbox">
+      <view><label><checkbox value="checkbox2"/>手提式灭火器</label></view>
+      <view><label><checkbox value="checkbox2"/>推车式灭火器</label></view>
+    </checkbox-group>
+   </view>
+   </i-collapse-item>
+</i-cell>
+  </i-collapse>
+      </view>
+   </i-collapse-item>
+   </i-cell>
+     </i-collapse>
+  
+  </view>
+  <!-- 选择消防维保细则完成 -->
+<i-cell-group>
+  <i-cell title="创建管理员个数"   >
+    <view style="padding: 16px" slot="footer">
+        <i-input-number value="{{ value1 }}" name="managernum" min="0" max="5" bindchange="handleChange1" />
+    </view>
+  </i-cell>
+
+    <!-- <i-cell title="创建维保员个数"  footer >
+    <view style="padding: 16px" slot="footer">
+        <i-input-number value="{{ value2 }}" min="0" max="5" bindchange="handleChange2" />
+    </view>
+  </i-cell> -->
+  </i-cell-group>
+<!-- 提交表单按钮 -->
+  <button formType="submit" disabled="{{disabled}}" type="primary">保存</button>
+</form>
+
+
+</view>
+
+</view>

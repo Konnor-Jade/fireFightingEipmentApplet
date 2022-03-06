@@ -1,0 +1,119 @@
+<!-- index.wxml
+<view class="container"> -->
+
+  <!-- 用户 openid -->
+  <!-- <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      size="default"
+    ></button>
+    <view class="userinfo-nickname-wrapper">
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view> -->
+
+
+  <!-- 上传图片 -->
+  <!-- <view class="uploader">
+    <view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+    </view>
+    <view class="uploader-container" wx:if="{{imgUrl}}">
+      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+    </view>
+  </view> -->
+
+
+  <!-- 操作数据库 -->
+  <!-- <view class="uploader">
+    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+      <text>前端操作数据库</text>
+    </navigator>
+  </view> -->
+
+  <!-- 即时通信 -->
+  <!-- <view class="uploader">
+    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+      <text>即时通信 Demo</text>
+    </navigator>
+  </view> -->
+
+  <!-- 新建云函数 -->
+  <!-- <view class="uploader">
+    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
+      <text>快速新建云函数</text>
+    </navigator>
+  </view> -->
+
+  <!-- 云调用 -->
+  <!-- <view class="uploader">
+    <navigator url="../openapi/openapi" open-type="navigate" class="uploader-text">
+      <text>云调用</text>
+    </navigator>
+  </view> -->
+
+
+<!-- </view> -->
+
+<view class="logpage">
+   <view class="container">
+   <!-- 欢迎背景图 -->
+     <image class="titleimg" src="../../images/titleimg.png"    mode="widthFix"></image>
+
+     <view class="box">
+<!-- 第一行文本 -->
+     <view style="height:40px;margin-top:15px;padding:0px;">
+      <text class="choscpn" style="font-size:20px; padding-bottom:0px;">请选择公司以及个人角色</text>
+     </view>
+<!--第二行 多列选择器 -->
+
+     <view class="row" style="margin-top:0px;border-radius:5px;">
+      <view style="height:60px;">
+
+      <view class="section">
+
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+  <view class="picker" style="text-align:center;display:flex;">
+  <view class="pickerdetail" style="width:100px;">{{multiArray[0][multiIndex[0]]}} </view><view  class="pickerdetail" style="width:150px;">{{multiArray[1][multiIndex[1]]}} </view><view class="pickerdetail" style="width:70px;">{{multiArray[2][multiIndex[2]]}}
+    </view></view>
+  </picker>
+</view>
+</view>
+      </view>
+    
+<!-- 第三行欢迎与姓名输入框 -->
+    <form catchsubmit="formSubmit">
+      <view style="display:flex;">
+        <image src="../../images/welcome.png" class="welcome"></image>
+        <input bindinput="crewAdd" placeholder="请输入姓名" style="border:solid #ECECEC 3px; margin-left:10px;margin-top:5px; height:60px; width:150px;border-radius:5px;box-shadow:2rpx 2rpx 10rpx 1rpx rgba(60,201,162,0.12);text-align:center;"/>
+      </view>
+ <!-- 第四行登陆口令 -->
+    <view class="row" style="height:40px;">
+      <text class="logkey"style="font-size:15px; text-aligh:center;">请输入登陆口令:</text>
+      <input type="number" confirm-type="done" style="border-left:solid #ECECEC thick; margin-left:20px;"/>
+    </view>
+    <!-- 第五行手机号码和发送验证码按钮 -->
+    <view class="row" style="height:40px;">
+      <input type="number" placeholder="请输入手机号码" confirm-type="done" style="border-right: solid #ECECEC thick; margin-right:20px;width:230px;"/>
+      <view bindtap="sendceri" style="color:#2962d4;">发送验证码</view>
+    </view>
+    <!-- 第六行输入验证码 -->
+    <view style="display:flex;">
+    <input type="number" placeholder="请输入验证码" style="border:solid #ECECEC 3px; height:50px;width:150px;border-radius:5px;box-shadow:2rpx 2rpx 10rpx 1rpx rgba(60,201,162,0.12);text-align:center;" confirm-type="done"/>
+    <image formType="submit" class="logto"  src="../../images/loginbutton.png" style="width:180px;height:150px; margin-left:45px;"/>
+ 
+    </view> 
+     </form></view>
+
+  <!-- <view class="agreement" bindtap="isCheck">
+    <image src="../../images/xy01.png" wx:if="{{isChoose}}" ></image>
+    <image src="../../images/xy02.png" wx:else></image>
+    登录即表示同意并遵守
+    <text catchtap="pageTo" data-url="/pages/registerText/registerText">《用户注册协议》</text>
+  </view>
+</view> -->
+</view>
+</view>

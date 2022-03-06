@@ -1,0 +1,9 @@
+<!--pages/send/send.wxml-->
+<view >
+  <button type="primary" bindtap="btn" >订阅消息</button>
+</view>
+<!--pages/send/send.wxml-->
+----------------------------------------------
+<view >
+  <button type="primary" bindtap="send" >发送消息</button>
+</view>

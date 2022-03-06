@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/head_add_one/head_add_one",
+    "pages/jiafangList/jiafangList",
+    "pages/coprtcpn/coprtcpn",
+    "pages/jiafang_proinfo/jiafang_proinfo",
+    "pages/remind_jiafang/remind_jiafang",
+    "pages/send/send"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

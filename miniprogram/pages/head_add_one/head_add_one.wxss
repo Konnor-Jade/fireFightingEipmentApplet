@@ -1,0 +1,16 @@
+.toback{
+  margin-right: 95px;
+  width: 30px;
+  height: 30px;
+}
+.TimeBox .right-cont input {
+  width: 100%;
+  font-size: 18px;
+  color: #444;
+}
+.TimeBox .left-name {
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+ 
+}

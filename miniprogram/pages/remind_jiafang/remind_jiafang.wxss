@@ -1,0 +1,34 @@
+.content{
+  width: 100%;
+  margin:0 10px;
+}
+.top_empty{
+  height: 50px;
+  width: 100%;
+}
+.hello{
+  height: 70px;
+  width: 50%;
+  margin-bottom: 50px;
+}
+.hello text{
+  height: 100%;
+  width: 100%;
+  font-size: 4em;
+  color:#2962d4;
+  font-family:clockfamily;
+}
+.line{
+  height: 60px;
+  width: 100%;
+  /* margin-bottom: 20px; */
+  padding-bottom: 10px;
+}
+.line text{
+  height: 100%;
+  width: 100%;
+  font-size: 3em;
+  color:#878787;
+  font-family: titlefamily;
+
+}

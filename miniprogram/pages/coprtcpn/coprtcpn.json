@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-search": "../../miniprogram_npm/@vant/weapp/search/index",
+    "van-tabbar": "../../miniprogram_npm/@vant/weapp/tabbar/index",
+  "van-tabbar-item": "../../miniprogram_npm/@vant/weapp/tabbar-item/index"
+   
+  },
+   "navigationBarTitleText": "合作公司列表"
+}

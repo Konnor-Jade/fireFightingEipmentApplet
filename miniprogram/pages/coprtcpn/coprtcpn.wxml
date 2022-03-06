@@ -1,0 +1,43 @@
+<!-- 顶部搜索框 -->
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词" 
+  bind:search="onSearch"
+  shape="round"
+  use-action-slot
+  use-right-icon-slot
+
+>
+<view  slot="action" bindtap="gotoaddjiafang"><image style="width:30px;height:30px;margin-top:7px;" src="../../images/plus.png"></image>
+</view>
+</van-search>
+<!-- 顶部搜索框结束 -->
+
+<!-- tabbar -->
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="friends-o" >合作公司</van-tabbar-item>
+  <van-tabbar-item icon="user-o" bindtap="gotojiafang">甲方公司</van-tabbar-item>
+  <van-tabbar-item icon="notes-o" >维保记录</van-tabbar-item>
+  <van-tabbar-item icon="chat-o">维修提醒</van-tabbar-item>
+</van-tabbar>
+<!-- tabbar结束 -->
+
+<!--内容卡片 -->
+<view class="container">
+<view class="cpncards" wx:for="{{cpncards}}" wx:key="_id">
+<view class="titlearea"><text style="font-family:titlefamily;font-size:2em;font-color:" > {{item.companyName}}</text></view>
+ <view style="display:flex; height:30%; ">
+
+<view style="margin-left:5px;">
+<text>合作有效期为：</text>
+</view>
+
+  <view class="duration" style="height:100%;" >
+  <text>{{item.companyInfo.startDate}}~{{item.companyInfo.endDate}}</text>
+  </view>
+
+
+  </view>
+</view>
+</view>
+<!-- 内容卡片结束 -->
